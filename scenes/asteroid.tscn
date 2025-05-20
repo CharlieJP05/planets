@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjakrfregco42"]
+
+[ext_resource type="Texture2D" uid="uid://dvaxfu3ml6ef2" path="res://Assets/asteroid-svgrepo-com.svg" id="1_akfqu"]
+
+[node name="Asteroid" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+
+[node name="AsteroidImage" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_akfqu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-35, -19, -31, -24, -27, -27, -21, -30, -15, -32, -8, -32, -2, -31, 5, -28, 12, -23, 24, -13, 35, -2, 39, 4, 40, 10, 39, 15, 35, 24, 26, 30, 17, 32, 6, 32, -7, 29, -18, 26, -27, 22, -34, 17, -39, 8, -40, -1, -38, -11)
