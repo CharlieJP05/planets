@@ -42,9 +42,11 @@ func _process(delta: float) -> void:
 	elif on_ground:
 		global_rotation = (get_global_mouse_position()-global_position).normalized().angle()
 		if direction!= Vector2.ZERO:
-			linear_velocity = direction * delta * speed #ship.linear_velocity + direction * delta * speed
+			linear_velocity = direction * delta * speed
+			#apply_force(direction * delta * speed*1000)
 		else:
 			linear_velocity = ship.linear_velocity
+			pass
 	else:
 		pass
 		
