@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5wkof17hqbte"]
+[gd_scene load_steps=7 format=3 uid="uid://b5wkof17hqbte"]
 
 [ext_resource type="Texture2D" uid="uid://dils8x1wtiosd" path="res://Assets/vecteezy_galaxy-background-with-falling-star-vector-space-galaxy_7120314.jpg" id="1_w8frs"]
-[ext_resource type="PackedScene" uid="uid://s0wfclmvivos" path="res://scenes/player.tscn" id="2_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://xe5hba5dnt08" path="res://scenes/player.tscn" id="2_mx8sn"]
 [ext_resource type="Script" uid="uid://bss4glxc83i5u" path="res://scenes/camera_2d.gd" id="2_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://bjakrfregco42" path="res://scenes/asteroid.tscn" id="3_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://65di2befsf0p" path="res://scenes/HUD.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://ct3qnl545crxw" path="res://scenes/ship.tscn" id="4_ppgk2"]
 
 [node name="Level" type="Node2D"]
 
@@ -18,9 +19,11 @@ texture = ExtResource("1_w8frs")
 [node name="HUD" parent="Camera2D" instance=ExtResource("4_mx8sn")]
 z_index = 1
 
-[node name="Player" parent="." instance=ExtResource("2_mx8sn")]
+[node name="Ship" parent="." instance=ExtResource("4_ppgk2")]
 unique_name_in_owner = true
-position = Vector2(186, 87)
+
+[node name="Player" parent="Ship" instance=ExtResource("2_mx8sn")]
+position = Vector2(-17, -13)
 
 [node name="Asteroid6" parent="." instance=ExtResource("3_ppgk2")]
 position = Vector2(1018, 314)
@@ -39,3 +42,5 @@ position = Vector2(372, 382)
 
 [node name="Asteroid" parent="." instance=ExtResource("3_ppgk2")]
 position = Vector2(186, 191)
+
+[connection signal="shipControl" from="Ship/Player" to="Ship" method="_on_player_ship_control"]
