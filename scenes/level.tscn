@@ -14,6 +14,7 @@ scale = Vector2(10, 10)
 texture = ExtResource("1_w8frs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 2
 texture_repeat = 1
 ignore_rotation = false
@@ -25,8 +26,8 @@ z_index = 1
 [node name="Ship" parent="." instance=ExtResource("4_ppgk2")]
 unique_name_in_owner = true
 
-[node name="Player" parent="Ship" instance=ExtResource("2_mx8sn")]
-position = Vector2(-518, -276)
+[node name="Player" parent="." instance=ExtResource("2_mx8sn")]
+position = Vector2(15, -67)
 
 [node name="Asteroid6" parent="." instance=ExtResource("3_ppgk2")]
 position = Vector2(1018, 314)
@@ -46,4 +47,4 @@ position = Vector2(372, 382)
 [node name="Asteroid" parent="." instance=ExtResource("3_ppgk2")]
 position = Vector2(186, 191)
 
-[connection signal="shipControl" from="Ship/Player" to="Ship" method="_on_player_ship_control"]
+[connection signal="ship_control" from="Player" to="Ship" method="_on_player_ship_control"]

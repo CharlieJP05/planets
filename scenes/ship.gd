@@ -6,7 +6,7 @@ var Aspeed = 5
 var Adamp = 1 # smaller stronger
 var threashold = 0.05
 #control vars
-var angular_dampen = 1
+var angular_dampen = 0
 var linear_dampen = 1
 var angle = 0
 var direction = Vector2(0,0)
@@ -14,7 +14,7 @@ var direction = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	angular_velocity = 1
 	#position = Vector2(100,500)
 
 
