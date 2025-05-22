@@ -85,41 +85,36 @@ func apply_ship_locking_logic(delta: float):
 	if not current_ship:
 		return
 	
-	if direction == Vector2.ZERO:
-		# No movement input: lock player exactly on ship floor
+	# Calculate the global position the player "should" be at on the ship,
+	# based on the target relative position in ship-local coordinates
+	var target_global_pos = current_ship.global_position + relative_pos.rotated(current_ship.rotation)
+	
+	# SPRING FORCE to pull player toward target position
+	var displacement = target_global_pos - global_position
+	var spring_stiffness = 1500.0  # tune this: higher = stronger pull
+	var spring_force = displacement * spring_stiffness
+	
+	# FRICTION FORCE opposing player velocity to prevent slipping
+	var friction_coefficient = 10  # tune this: higher = more friction
+	var friction_force = -linear_velocity * friction_coefficient
+	
+	# Apply these forces
+	apply_central_force(spring_force)
+	apply_central_force(friction_force)
+	
+	# Handle player input movement by moving the target position on the ship surface
+	if direction != Vector2.ZERO:
+		# Move relative_pos by input scaled by speed and delta time
+		var move_delta = direction.normalized() * speed * delta
 		
-		# Calculate global position of relative_pos in ship space
-		var expected_pos = current_ship.global_position + relative_pos.rotated(current_ship.rotation)
-		global_position = expected_pos
-		
-		# Calculate tangential velocity due to rotation: ω × r = angular_velocity * perpendicular vector
-		var tangential_vel = Vector2(-relative_pos.y, relative_pos.x) * current_ship.angular_velocity
-		var expected_velocity = current_ship.linear_velocity + tangential_vel
-		
-		linear_velocity = expected_velocity
-		angular_velocity = current_ship.angular_velocity
-		
-	else:
-		# Movement input: move relative_pos in ship local space, then update position & velocity
-		
-		# Calculate movement delta in ship local space (no rotation)
-		var local_move = direction.normalized() * speed * delta
+		# If your camera rotates the player movement, adjust here:
 		if not camera.rotate:
-			local_move = local_move.rotated(-current_ship.rotation)
-		relative_pos += local_move  # Add directly in ship local coords
+			# Convert move_delta to ship local coordinates (un-rotate by ship rotation)
+			move_delta = move_delta.rotated(-current_ship.rotation)
 		
-		# Update global position from relative_pos
-		var expected_pos = current_ship.global_position + relative_pos.rotated(current_ship.rotation)
-		global_position = expected_pos
-		
-		# Calculate velocity due to rotation (centripetal effect)
-		var tangential_vel = Vector2(-relative_pos.y, relative_pos.x) * current_ship.angular_velocity
-		var expected_velocity = current_ship.linear_velocity + tangential_vel
-		
-		# Add player movement velocity converted to global coords
-		var move_velocity = local_move / delta  # movement velocity in ship local space
-		linear_velocity = expected_velocity + move_velocity.rotated(current_ship.rotation)
-		angular_velocity = current_ship.angular_velocity
+		relative_pos += move_delta
+
+
 
 
 
