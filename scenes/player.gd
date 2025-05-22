@@ -1,7 +1,7 @@
 extends RigidBody2D
 @onready var ship = %Ship
 var seated = 0
-var speed = 10000
+var speed = 200
 var seatPos = Vector2(0,0)
 var direction = Vector2(0,0)
 var angle = 0
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# GET INPUTS
 	if seated:
 		direction = Input.get_vector("rcs_left","rcs_right","rcs_forward","rcs_backward")
@@ -34,15 +34,19 @@ func _process(delta: float) -> void:
 		else: # just stood
 			pass
 			
-	print(direction)
+	print(position)
 	if seated:
 		rotation = deg_to_rad(-90)
 		position = seatPos
+		linear_velocity = Vector2(0,0)
 		shipControl.emit(direction,angle,angular_dampen,linear_dampen)
 	elif on_ground:
 		global_rotation = (get_global_mouse_position()-global_position).normalized().angle()
 		if direction!= Vector2.ZERO:
-			linear_velocity = direction * delta * speed
+			linear_velocity = direction * speed
+			print(linear_velocity)
+			print("a")
+			#position += direction * delta * 100
 			#apply_force(direction * delta * speed*1000)
 		else:
 			linear_velocity = ship.linear_velocity
