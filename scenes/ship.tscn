@@ -172,6 +172,7 @@ physics_layer_1/collision_mask = 0
 sources/2 = SubResource("TileSetAtlasSource_tfsc7")
 
 [node name="Ship" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_2gnfn")
 metadata/_edit_horizontal_guides_ = [-68.0]
 
