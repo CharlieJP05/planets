@@ -26,8 +26,13 @@ z_index = 1
 [node name="Ship" parent="." instance=ExtResource("4_ppgk2")]
 unique_name_in_owner = true
 
-[node name="Player" parent="." instance=ExtResource("2_mx8sn")]
-position = Vector2(15, -67)
+[node name="Player" parent="Ship" node_paths=PackedStringArray("camera") instance=ExtResource("2_mx8sn")]
+unique_name_in_owner = true
+position = Vector2(-41, -122)
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+camera = NodePath("../../Camera2D")
 
 [node name="Asteroid6" parent="." instance=ExtResource("3_ppgk2")]
 position = Vector2(1018, 314)
@@ -45,6 +50,4 @@ position = Vector2(457, 179)
 position = Vector2(372, 382)
 
 [node name="Asteroid" parent="." instance=ExtResource("3_ppgk2")]
-position = Vector2(186, 191)
-
-[connection signal="ship_control" from="Player" to="Ship" method="_on_player_ship_control"]
+position = Vector2(300, 254)

@@ -10,12 +10,15 @@ var angular_dampen = 0
 var linear_dampen = 1
 var angle = 0
 var direction = Vector2(0,0)
+@onready var player = %Player
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	angular_velocity = 1
+
 	#position = Vector2(100,500)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,8 +53,5 @@ func _on_player_ship_control(dir,ang,ang_damp,lin_damp) -> void:
 	angle = ang
 	angular_dampen = ang_damp
 	linear_dampen = lin_damp
-	
-	
-	
-	
+
 	
