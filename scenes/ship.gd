@@ -6,8 +6,8 @@ var Aspeed = 5
 var Adamp = 1 # smaller stronger
 var threashold = 0.05
 #control vars
-var angular_dampen = 0
-var linear_dampen = 1
+var angular_dampen = false
+var linear_dampen = true
 var angle = 0
 var direction = Vector2(0,0)
 @onready var player = %Player

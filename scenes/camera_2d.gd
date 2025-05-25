@@ -1,6 +1,6 @@
 extends Camera2D
 @onready var ship = %Ship
-var rotate = 0
+var rotate = false
 var zoom_step = 1.1
 
 var shift = Vector2(0, 0)
@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		zoom /= zoom_step
 		scale *= zoom_step
 	if Input.is_action_just_pressed("camera_rotate"):
-		rotate = abs(rotate - 1)
+		rotate = !rotate
 	if rotate:
 		rotation = ship.rotation
 	else:
