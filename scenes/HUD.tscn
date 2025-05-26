@@ -61,6 +61,7 @@ offset_right = 208.0
 offset_bottom = 504.0
 
 [node name="State" type="Label" parent="Values"]
+layout_mode = 0
 offset_top = 408.0
 offset_right = 140.0
 offset_bottom = 457.0
@@ -84,6 +85,7 @@ offset_bottom = 49.0
 text = "000"
 
 [node name="fall" type="Label" parent="Values/State"]
+layout_mode = 0
 offset_left = 144.0
 offset_top = 48.0
 offset_right = 184.0
@@ -91,6 +93,7 @@ offset_bottom = 71.0
 text = "000"
 
 [node name="Toggles" type="Label" parent="Values"]
+layout_mode = 0
 offset_top = 280.0
 offset_right = 140.0
 offset_bottom = 329.0
@@ -114,6 +117,7 @@ offset_bottom = 47.0
 text = "000"
 
 [node name="jetpack" type="Label" parent="Values/Toggles"]
+layout_mode = 0
 offset_left = 144.0
 offset_top = 56.0
 offset_right = 184.0
@@ -121,6 +125,7 @@ offset_bottom = 79.0
 text = "000"
 
 [node name="Dampeners" type="Label" parent="Values"]
+layout_mode = 0
 offset_top = 152.0
 offset_right = 141.0
 offset_bottom = 201.0
@@ -143,6 +148,7 @@ offset_bottom = 49.0
 text = "000"
 
 [node name="Position" type="Label" parent="Values"]
+layout_mode = 0
 offset_top = 88.0
 offset_right = 140.0
 offset_bottom = 137.0

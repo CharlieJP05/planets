@@ -12,12 +12,14 @@ var direction = Vector2.ZERO
 var angular_dampen = false
 var linear_dampen = false
 
+var building = false
 var grounded = true
 var sitting = false
 var jetpack = false
 var mag_boots = true
 var fall = false
 var start_pause = true # TODO proper fix this
+
 
 func _physics_process(delta: float) -> void:
 	global_rotation = (get_global_mouse_position()-global_position).normalized().angle()
@@ -59,8 +61,18 @@ func _physics_process(delta: float) -> void:
 				print("Grounded on ship")
 
 	direction = direction.rotated(camera.rotation-deg_to_rad(180))
-	if grounded and not sitting:
-		move_and_collide(direction*move_speed*delta) # TODO add own collisions
+	if building:
+		pass
+	
+	if sitting:
+		shipControl.emit(direction,angle,angular_dampen,linear_dampen)
+		rotation = 0
+	elif grounded:
+		# TODO add own collisions
+		#move_and_collide(direction*move_speed*delta) # sticks
+		move_and_slide_manual(direction*move_speed*delta) # broke
+		#linear_velocity += direction*move_speed/20 # doesnt work if frozen
+		
 		
 	elif not sitting:
 		# Floating in space - normal rigidbody physics
@@ -68,8 +80,8 @@ func _physics_process(delta: float) -> void:
 			var space_input = direction * move_speed / 20
 			linear_velocity += space_input
 	else:
-		shipControl.emit(direction,angle,angular_dampen,linear_dampen)
-		rotation = 0
+		pass
+		
 	
 	
 	# to fix first loop issues
@@ -90,3 +102,14 @@ func is_fall() -> bool:
 	if results == []:
 		return true
 	return false
+
+func move_and_slide_manual(velocity: Vector2) -> void:
+	if velocity == Vector2.ZERO:
+		return
+
+	var collision = move_and_collide(velocity)
+
+	if collision:
+		var normal = collision.get_normal()
+		var slide_vector = velocity - normal * velocity.dot(normal)
+		move_and_collide(slide_vector)
