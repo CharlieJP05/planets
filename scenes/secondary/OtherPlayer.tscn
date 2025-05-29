@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://xlvd3h6mtk7u"]
+
+[ext_resource type="Script" uid="uid://dj88sg5wdcsqc" path="res://scripts/OtherPlayer.gd" id="1_q48ws"]
+[ext_resource type="Texture2D" uid="uid://cgm6nngnbk7jv" path="res://Assets/main/Player.png" id="3_myllv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 8.0
+
+[node name="OtherPlayer" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_q48ws")
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("3_myllv")
+
+[node name="Main" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="Feet" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qhqgy")
+disabled = true

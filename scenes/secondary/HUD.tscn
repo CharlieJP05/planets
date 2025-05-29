@@ -1,0 +1,350 @@
+[gd_scene load_steps=3 format=3 uid="uid://65di2befsf0p"]
+
+[ext_resource type="Script" uid="uid://b3x77p753wlar" path="res://scripts/HUD.gd" id="1_m7gic"]
+[ext_resource type="Texture2D" uid="uid://e1xdow386ftc" path="res://Assets/icons/mars.png" id="2_t8tbe"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1536.0
+offset_top = -864.0
+offset_right = 384.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7gic")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hotbar" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 376.0
+offset_top = 964.0
+offset_right = 1424.0
+offset_bottom = 1076.0
+
+[node name="Slot1" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot1"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="Slot2" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="Slot3" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 8.0
+offset_right = 312.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot3"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="Slot4" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 8.0
+offset_right = 416.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot4"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="Slot5" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 8.0
+offset_right = 520.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot5"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="Slot6" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 8.0
+offset_right = 624.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot6"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="Slot7" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 8.0
+offset_right = 728.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot7"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="Slot8" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 8.0
+offset_right = 832.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot8"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="Slot9" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 8.0
+offset_right = 936.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot9"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+texture = ExtResource("2_t8tbe")
+
+[node name="Slot10" type="Panel" parent="Hotbar"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 8.0
+offset_right = 1040.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="Hotbar/Slot10"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 88.0
+
+[node name="Controls" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1616.0
+offset_top = 4.0
+offset_right = 1916.0
+offset_bottom = 604.0
+
+[node name="Label" type="Label" parent="Controls"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 31.0
+text = "Toggles
+=======
+Camera lock     > Y
+Angular Damp > R
+Linear Damp    > T
+Jetpack              > X
+
+Keys
+=====
+Jump    > Space
+Sit         > Enter
+Move    > WASD
+
+
+Stuff
+===========
+Try walk out of ship, only be able to
+move if jetpack is on, try jump in the 
+ship
+Press enter to control ship, look on 
+the left for better info"
+
+[node name="Values" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 208.0
+offset_bottom = 504.0
+
+[node name="State" type="Label" parent="Values"]
+layout_mode = 0
+offset_top = 408.0
+offset_right = 140.0
+offset_bottom = 457.0
+text = "Sitting        >
+Grounded  >
+Fall              >"
+
+[node name="sitting" type="Label" parent="Values/State"]
+layout_mode = 0
+offset_left = 146.0
+offset_right = 186.0
+offset_bottom = 23.0
+text = "000"
+
+[node name="grounded" type="Label" parent="Values/State"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 26.0
+offset_right = 186.0
+offset_bottom = 49.0
+text = "000"
+
+[node name="fall" type="Label" parent="Values/State"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 48.0
+offset_right = 184.0
+offset_bottom = 71.0
+text = "000"
+
+[node name="Toggles" type="Label" parent="Values"]
+layout_mode = 0
+offset_top = 280.0
+offset_right = 140.0
+offset_bottom = 329.0
+text = "Mag Boots             >
+Camera Rotate     >
+Jetpack                   >"
+
+[node name="mag_boots" type="Label" parent="Values/Toggles"]
+layout_mode = 0
+offset_left = 144.0
+offset_right = 184.0
+offset_bottom = 23.0
+text = "000"
+
+[node name="camera_rotate" type="Label" parent="Values/Toggles"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 24.0
+offset_right = 184.0
+offset_bottom = 47.0
+text = "000"
+
+[node name="jetpack" type="Label" parent="Values/Toggles"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 56.0
+offset_right = 184.0
+offset_bottom = 79.0
+text = "000"
+
+[node name="Dampeners" type="Label" parent="Values"]
+layout_mode = 0
+offset_top = 152.0
+offset_right = 141.0
+offset_bottom = 201.0
+text = "Linear Dampen   >
+Angular Dampen>"
+
+[node name="linear" type="Label" parent="Values/Dampeners"]
+layout_mode = 0
+offset_left = 146.0
+offset_right = 186.0
+offset_bottom = 23.0
+text = "000"
+
+[node name="angular" type="Label" parent="Values/Dampeners"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 26.0
+offset_right = 186.0
+offset_bottom = 49.0
+text = "000"
+
+[node name="Position" type="Label" parent="Values"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 140.0
+offset_bottom = 137.0
+text = "Linear Position   >
+Angular Position>"
+
+[node name="linear" type="Label" parent="Values/Position"]
+layout_mode = 0
+offset_left = 146.0
+offset_right = 186.0
+offset_bottom = 23.0
+text = "000"
+
+[node name="angular" type="Label" parent="Values/Position"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 26.0
+offset_right = 186.0
+offset_bottom = 49.0
+text = "000"
+
+[node name="Velocity" type="Label" parent="Values"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 140.0
+offset_bottom = 73.0
+text = "Linear Velocity    >
+Angular Velocity >"
+
+[node name="linear" type="Label" parent="Values/Velocity"]
+layout_mode = 0
+offset_left = 146.0
+offset_right = 186.0
+offset_bottom = 23.0
+text = "000"
+
+[node name="angular" type="Label" parent="Values/Velocity"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 26.0
+offset_right = 186.0
+offset_bottom = 49.0
+text = "000"
+
+[node name="Screen" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
